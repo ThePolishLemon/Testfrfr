@@ -1,0 +1,15 @@
+
+version: "3.8"
+services:
+    openvpn:
+        stdin_open: true
+        tty: true
+        cap_add:
+            - NET_ADMIN
+        ports:
+            - 1194:1194/udp
+            - 80:8080/tcp
+        environment:
+            HOST_ADDR: $(curl
+        container_name: dockovpn
+        image: alekslitvinenk/openvpn
